@@ -3,11 +3,15 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 import axios from 'axios'
+import ZkTable from 'vue-table-with-tree-grid'
 
 // 全局样式表
 import './assets/css/index.css'
 // 阿里巴巴图标库
 import './assets/fonts/iconfont.css'
+
+// 树型表格插件
+Vue.use(ZkTable)
 
 // axios请求处理
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'

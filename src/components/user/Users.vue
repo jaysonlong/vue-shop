@@ -299,8 +299,6 @@ export default {
         '此操作将永久删除该用户, 是否继续?',
         '提示信息',
         {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
           type: 'warning'
         }
       ).catch(err => err)
