@@ -248,12 +248,12 @@ export default {
         const { data: res } = await this.$http.post('users', this.addForm)
 
         if (res.meta.status !== 201) {
-          this.$message.error('添加用户失败')
+          return this.$message.error('添加用户失败')
         }
 
         this.$message.success('添加用户成功')
-        this.addDialogVisible = false
         this.getUserList()
+        this.addDialogVisible = false
       })
     },
 
@@ -288,9 +288,9 @@ export default {
           return this.$message.error('更新用户信息失败')
         }
 
-        this.editDialogVisible = false
         this.$message.success('更新用户信息成功')
         this.getUserList()
+        this.editDialogVisible = false
       })
     },
 
@@ -353,8 +353,8 @@ export default {
       }
 
       this.$message.success('更新角色成功')
-      this.setRoleDialogVisible = false
       this.getUserList()
+      this.setRoleDialogVisible = false
     }
   }
 }
