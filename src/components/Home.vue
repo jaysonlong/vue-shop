@@ -13,14 +13,16 @@
       <el-aside :width="isCollapse ? '64px': '200px'">
         <!-- 折叠按钮 -->
         <div class="toggle-button" @click="toggleCollapse">|||</div>
+        <!-- 菜单栏 -->
         <el-menu
           :collapse-transition="false"
           unique-opened
-          default-active="1"
+          :default-active="activePath"
           background-color="#333744"
           text-color="#fff"
           active-text-color="#409EFF"
-          :collapse="isCollapse">
+          :collapse="isCollapse"
+          router>
           <el-submenu v-for="(menu, index) in menuList"
             :index="index + ''" :key="menu.id">
             <template slot="title">
@@ -29,14 +31,11 @@
               <!-- 文本 -->
               <span>{{ menu.authName }}</span>
             </template>
-
             <el-menu-item v-for="subMenu in menu.children"
               :index="'/' + subMenu.path" :key="subMenu.id"
               @click="saveActivePath('/' + subMenu.path)">
               <template slot="title">
-                <!-- 图标 -->
                 <i class="el-icon-menu"></i>
-                <!-- 文本 -->
                 <span>{{ subMenu.authName }}</span>
               </template>
             </el-menu-item>
@@ -46,7 +45,6 @@
 
       <!-- 主内容区域 -->
       <el-main>
-        Main
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -65,11 +63,14 @@ export default {
         '102': 'iconfont icon-danju',
         '145': 'iconfont icon-baobiao'
       },
-      isCollapse: false
+      isCollapse: false,
+      activePath: ''
     }
   },
+
   created () {
     this.getMenuList()
+    this.activePath = window.sessionStorage.getItem('activePath')
   },
 
   methods: {
@@ -87,6 +88,7 @@ export default {
     },
     saveActivePath (activePath) {
       window.sessionStorage.setItem('activePath', activePath)
+      this.activePath = activePath
     }
   }
 }
