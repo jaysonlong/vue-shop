@@ -71,6 +71,7 @@ export default {
   },
 
   created () {
+    console.log('test babel-plugin (remove console.xxx at production environment)')
     this.getMenuList()
     this.activePath = window.sessionStorage.getItem('activePath')
   },
@@ -88,7 +89,11 @@ export default {
     },
     async getMenuList () {
       const { data: res } = await this.$http.get('menus')
-      if (res.meta.status !== 200) return this.$message.error('获取菜单失败')
+
+      if (res.meta.status !== 200) {
+        return this.$message.error('获取菜单失败')
+      }
+
       this.menuList = res.data
     },
     toggleCollapse () {

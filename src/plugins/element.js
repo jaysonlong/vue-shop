@@ -41,6 +41,8 @@ import {
 
 import Timeline from './timeline/index.js'
 import TimelineItem from './timeline-item/index.js'
+import './timeline/timeline.css'
+import './timeline-item/timeline-item.css'
 
 Vue.use(Button)
 Vue.use(Form)
