@@ -2,10 +2,12 @@
   <el-container class="home-container">
     <el-header>
       <div>
-        <img src="../assets/heima.png" alt="">
+        <router-link to="/home">
+          <img src="../assets/heima.png" alt="">
+        </router-link>
         <span>电商后台管理系统</span>
       </div>
-      <el-button type="info" @click="logout">注销</el-button>
+      <el-button type="info" size="small" @click="logout">注销</el-button>
     </el-header>
 
     <el-container>
@@ -33,7 +35,7 @@
             </template>
             <el-menu-item v-for="subMenu in menu.children"
               :index="'/' + subMenu.path" :key="subMenu.id"
-              @click="saveActivePath('/' + subMenu.path)">
+              @click="setActivePath('/' + subMenu.path)">
               <template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>{{ subMenu.authName }}</span>
@@ -73,6 +75,12 @@ export default {
     this.activePath = window.sessionStorage.getItem('activePath')
   },
 
+  provide () {
+    return {
+      setActivePath: this.setActivePath
+    }
+  },
+
   methods: {
     logout () {
       window.sessionStorage.clear()
@@ -86,7 +94,7 @@ export default {
     toggleCollapse () {
       this.isCollapse = !this.isCollapse
     },
-    saveActivePath (activePath) {
+    setActivePath (activePath) {
       window.sessionStorage.setItem('activePath', activePath)
       this.activePath = activePath
     }

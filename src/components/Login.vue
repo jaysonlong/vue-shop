@@ -13,10 +13,12 @@
         class="login-form"
        >
         <el-form-item prop="username">
-          <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input>
+          <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"
+            placeholder="用户名" @keyup.enter.native="login"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="loginForm.password" type="password" prefix-icon="iconfont icon-3702mima"></el-input>
+          <el-input v-model="loginForm.password" type="password" prefix-icon="iconfont icon-3702mima"
+            placeholder="密码" @keyup.enter.native="login"></el-input>
         </el-form-item>
         <el-form-item class="btns">
           <el-button type="primary" @click="login">登陆</el-button>
