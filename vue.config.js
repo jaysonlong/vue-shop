@@ -1,13 +1,13 @@
 module.exports = {
   chainWebpack: config => {
     config.module
-      .rule("eslint")
-      .use("eslint-loader")
-      .loader("eslint-loader")
+      .rule('eslint')
+      .use('eslint-loader')
+      .loader('eslint-loader')
       .tap(options => {
-        options.fix = true;
-        return options;
-      });
+        options.fix = true
+        return options
+      })
 
     // 指定生产环境相关配置
     config.when(process.env.NODE_ENV === 'production', config => {
@@ -41,4 +41,4 @@ module.exports = {
       })
     })
   }
-};
+}
