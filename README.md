@@ -2,7 +2,7 @@
 
 ![screenshot](img/screenshot.png)
 
-##### 电商后台管理系统，在线演示地址： http://47.102.131.20/vue-shop（admin & 123456)
+##### 电商后台管理系统，在线演示地址： http://47.102.131.20/vue-shop (admin & 123456)
 
 使用的技术栈：
 
