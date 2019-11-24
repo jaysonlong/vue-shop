@@ -1,8 +1,12 @@
 # vue-shop
 
-电商后台管理系统，使用的技术栈：
+![screenshot](img/screenshot.png)
 
-`Vue` + `Vue-router` + `element-ui` + `axios`
+##### 电商后台管理系统，在线演示地址： http://47.102.131.20/vue-shop（admin & 123456)
+
+使用的技术栈：
+
+`vue` + `vue-router` + `element-ui` + `axios`
 
 使用的插件：
 
@@ -29,9 +33,9 @@ npm run serve
 
 #### 后端部分
 
-###### 1、解压 `backend`文件夹中的压缩包
+###### 1、解压 `backend/vue-api-server.zip`
 
-###### 2、进入解压文件夹
+###### 2、进入解压好的文件夹
 
 ###### 3、导入`db/mysql.sql`文件到你的数据库
 
