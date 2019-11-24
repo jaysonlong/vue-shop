@@ -1,25 +1,14 @@
 <template>
   <div>
-    <!-- 面包屑导航 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-      <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <TopBreadcrumb :titles="['用户管理', '用户列表']"></TopBreadcrumb>
 
     <el-card>
       <!-- 搜索工具 -->
-      <el-row :gutter="20">
-        <el-col :span="10">
-          <el-input placeholder="请输入内容" v-model="queryInfo.query"
-            clearable @clear="getUserList" @keyup.enter.native="getUserList">
-            <el-button slot="append" icon="el-icon-search" @click="getUserList"></el-button>
-          </el-input>
-        </el-col>
+      <SearchTool v-model="queryInfo.query" @search="getUserList">
         <el-col :span="4">
           <el-button type="primary" @click="addDialogVisible = true">添加用户</el-button>
         </el-col>
-      </el-row>
+      </SearchTool>
 
       <!-- 用户列表 -->
       <el-table :data="userList" stripe border>

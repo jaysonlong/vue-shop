@@ -6,14 +6,12 @@ import router from './router'
 // import './plugins/element.js'
 import axios from 'axios'
 import ZkTable from 'vue-table-with-tree-grid'
+import TopBreadcrumb from './components/TopBreadcrumb.vue'
+import SearchTool from './components/SearchTool.vue'
 import NProgress from 'nprogress'
 import './assets/css/global.css'
-
-// 阿里巴巴图标库
-import './assets/fonts/iconfont.css'
-
-// 导入富文本编辑器
-import VueQuillEditor from 'vue-quill-editor'
+import './assets/fonts/iconfont.css' // 阿里巴巴图标库
+import VueQuillEditor from 'vue-quill-editor' // 富文本编辑器
 
 // 树型表格插件
 Vue.use(ZkTable)
@@ -35,6 +33,9 @@ Vue.prototype.$http = axios
 
 // 注册富文本编辑器为全局组件
 Vue.use(VueQuillEditor)
+
+Vue.component('TopBreadcrumb', TopBreadcrumb)
+Vue.component('SearchTool', SearchTool)
 
 Vue.filter('dateFormat', function (val) {
   const dt = new Date(val)

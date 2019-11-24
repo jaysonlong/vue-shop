@@ -1,26 +1,14 @@
 <template>
   <div>
-    <!-- 面包屑导航区域 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>商品管理</el-breadcrumb-item>
-      <el-breadcrumb-item>商品列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <TopBreadcrumb :titles="['商品管理', '商品列表']"></TopBreadcrumb>
 
     <!-- 卡片视图区域 -->
     <el-card>
-      <el-row :gutter="20">
-        <el-col :span="8">
-          <el-input placeholder="请输入内容" v-model="queryInfo.query"
-            clearable @clear="getGoodsList" @keyup.enter.native="getGoodsList">
-            <el-button slot="append" icon="el-icon-search"
-              @click="getGoodsList"></el-button>
-          </el-input>
-        </el-col>
+      <SearchTool v-model="queryInfo.query" @search="getGoodsList">
         <el-col :span="4">
           <el-button type="primary" @click="toAddpage">添加商品</el-button>
         </el-col>
-      </el-row>
+      </SearchTool>
 
       <!-- table表格区域 -->
       <el-table :data="goodsList" border stripe>

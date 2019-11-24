@@ -1,20 +1,10 @@
 <template>
   <div>
-    <!-- 面包屑导航区域 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>订单管理</el-breadcrumb-item>
-      <el-breadcrumb-item>订单列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <TopBreadcrumb :titles="['订单管理', '订单列表']"></TopBreadcrumb>
 
     <el-card>
-      <el-row>
-        <el-col :span="8">
-          <el-input placeholder="暂不支持搜索" v-model="queryInfo.query">
-            <el-button slot="append" icon="el-icon-search"></el-button>
-          </el-input>
-        </el-col>
-      </el-row>
+      <SearchTool v-model="queryInfo.query" placeholder="暂不支持搜索">
+      </SearchTool>
 
       <!-- 订单列表数据 -->
       <el-table :data="orderList" border stripe>
