@@ -2,7 +2,7 @@
 
 ![screenshot](img/screenshot.png)
 
-##### 电商后台管理系统，在线演示地址： http://47.102.131.20/vue-shop (admin & 123456)
+##### 电商后台管理系统，在线演示地址： http://jaysonl.top/shop (admin & 123456)
 
 使用的技术栈：
 
@@ -24,9 +24,22 @@
 
 #### 前端部分
 
+##### 安装依赖
+
 ```
 npm install
+```
+
+##### 运行（开发模式）
+
+```
 npm run serve
+```
+
+##### 打包（生产模式）
+
+```
+npm run build
 ```
 
 
@@ -37,11 +50,11 @@ npm run serve
 
 ###### 2、进入解压好的文件夹
 
-###### 3、导入`db/mysql.sql`文件到你的数据库
+###### 3、创建数据库mydb（或其他名称），导入`db/mydb.sql`文件到该数据库
 
 ###### 4、编辑`config/default.json`文件，配置MySQL用户名、密码、数据库名
 
-###### 5、运行以下命令
+###### 5、执行以下命令安装依赖、启动服务：
 
 ```
 npm install
