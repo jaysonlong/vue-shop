@@ -71,7 +71,6 @@ export default {
   },
 
   created () {
-    console.log('test babel-plugin (remove console.xxx at production environment)')
     this.getMenuList()
     this.activePath = window.sessionStorage.getItem('activePath')
   },

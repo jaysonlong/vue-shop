@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: .
+    hostname: vue-shop
+    ports:
+      - '${PORT}:80'
+
+  backend:
+    build: ./backend/vue-api-server
+
+networks:
+  default:
+    name: vue-shop
+    external: true
